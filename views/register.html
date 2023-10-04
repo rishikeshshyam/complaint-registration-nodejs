@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Node.js Login System With MySQL</title>
+    <link
+      rel="stylesheet"
+      href="/css/style.css"
+    />
+    <style>
+      @import
+      url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500&display=swap');
+      * {
+        margin: 0;
+        padding: 0;
+        outline: none;
+        box-sizing: border-box;
+        font-family: 'Noto Sans',
+        sans-serif;
+      }
+      body {
+        height: 100vh;
+        width: 100%;
+        background: #5199E4;
+      }
+      .container,
+      .container-fluid {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        background: #fff;
+        width: 410px;
+        padding: 30px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+      }
+      .container .text {
+        font-size: 35px;
+        font-weight: 400;
+        text-align: center;
+        color: #5199E4;
+      }
+      .container form {
+        margin-top: -20px;
+      }
+      .container form .data {
+        height: 45px;
+        width: 100%;
+        margin: 40px 0;
+      }
+      form .data label {
+        font-size: 18px;
+      }
+      form .data input {
+        height: 100%;
+        width: 100%;
+        padding-left: 10px;
+        font-size: 17px;
+        border: 1px solid silver;
+      }
+      form .data input:focus {
+        border-color: #5199E4;
+        border-bottom-width: 2px;
+      }
+      form .forgot-pass {
+        margin-top: -8px;
+      }
+      form .forgot-pass a {
+        color: #5199E4;
+        text-decoration: none;
+      }
+      form .forgot-pass a:hover {
+        text-decoration: underline;
+      }
+      form .btn {
+        margin: 30px 0;
+        height: 45px;
+        width: 100%;
+      }
+      form .btn button {
+        height: 100%;
+        width: 100%;
+        background: none;
+        border: none;
+        color: #fff;
+        background: #5199E4;
+        font-size: 18px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+      }
+      form .signup-link {
+        text-align: center;
+      }
+      form .signup-link a {
+        color: #5199E4;
+        text-decoration: none;
+      }
+      form .signup-link a:hover {
+        text-decoration: underline;
+      }
+      .container-fluid {
+        width: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+    <script>
+      function saveUserData() {
+        var name = document.querySelector('input[name="name"]').value;
+        var email = document.querySelector('input[name="email"]').value;
+        var password = document.querySelector('input[name="password"]').value;
+        var confirm_password = document.querySelector('input[name="confirm_password"]').value;
+
+        // Add validation to ensure password and confirm_password match
+        if (password !== confirm_password) {
+          alert('Password and Confirm Password do not match.');
+          return;
+        }
+
+        // Save user registration data in localStorage
+        localStorage.setItem('name', name);
+        localStorage.setItem('email', email);
+        localStorage.setItem('password', password);
+
+        // Redirect to the login page
+        alert('Registration successful! You can now log in.');
+        window.location.href = '/login.html';
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="text">Registration</div>
+      <form onsubmit="saveUserData(); return false;">
+        <div class="data">
+          <label for="name">Full Name</label>
+          <input type="text" name="name" id="name" />
+        </div>
+        <div class="data">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" />
+        </div>
+        <div class="data">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" />
+        </div>
+        <div class="data">
+          <label for="confirm_password">Confirm Password</label>
+          <input type="password" name="confirm_password" id="confirm_password" />
+        </div>
+
+        <div class="btn">
+          <button type="submit">Register</button>
+        </div>
+        <div class="signup-link">
+          Already a member ? <a href="/index.html">Login now</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

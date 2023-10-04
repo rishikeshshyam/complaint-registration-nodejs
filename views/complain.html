@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Form</title>
+</head>
+<style>
+   body {
+    font-family: Arial, sans-serif;
+    background-image: url('imgback.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; /* Adjust as needed */
+    padding: 0;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: rgb(159, 181, 204);
+    
+}
+.title {
+        font-size: 50px;
+        color: rgb(0, 0, 0);
+        display: inline;
+    }
+
+
+   
+.container {
+    background-color: white;
+    padding: 20px;
+    margin: 150px auto;
+    max-width: 500px;
+    box-shadow: 0px 10px 8px rgba(0, 0, 0, 0.7);
+    
+}
+
+.cont-text {
+    text-align: center;
+}
+
+form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #008CBA;
+    
+    font-size: 16px;
+    resize: none;
+}
+
+button.btn2 {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button.btn2:hover {
+    background-color: #005F7E;
+}
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        function formsubmit() {
+            var comp = document.querySelector('textarea[name="complaint"]').value;
+            if (comp === '') {
+                alert('Please enter your complaint.');
+            } else {
+                alert('Complaint registered successfully.');
+            }
+        }
+
+        var submitButton = document.querySelector('.btn.btn2');
+        submitButton.addEventListener("click", formsubmit);
+    });
+</script>
+<body>
+   
+    <div class="container">
+        <div class="cont-text">
+            <form name="contact" action="javascript:void(0)">
+                <h2 style="color: rgb(13, 49, 88);">Complaint</h2>
+                <textarea name="complaint" cols="30" rows="10" placeholder="Enter Your Complaint"></textarea>
+                <button type="button" class="btn btn2">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
